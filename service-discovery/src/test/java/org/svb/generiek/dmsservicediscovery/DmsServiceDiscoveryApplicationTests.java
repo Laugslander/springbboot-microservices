@@ -1,4 +1,4 @@
-package com.jbag.servicediscovery;
+package org.svb.generiek.dmsservicediscovery;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
