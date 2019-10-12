@@ -1,0 +1,47 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      metrics:
+        enabled: true
+      routes:
+        - id: document
+          uri: lb://DOCUMENT-SERVICES/
+          predicates:
+            - Path=/document/{segment}
+          filters:
+            - SetPath=/{segment}
+            - name: Retry
+              args:
+                retries: 3
+                exception: java.net.ConnectException
+        - id: dossier
+          uri: lb://DOSSIER-SERVICES/
+          predicates:
+            - Path=/dossier/{segment}
+          filters:
+            - SetPath=/{segment}
+            - name: Retry
+              args:
+                retries: 3
+                exception: java.net.ConnectException
+  application:
+    name: api-gateway
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${registry.host:localhost}:${registry.port:8761}/eureka/
+    healthcheck:
+      enabled: true
+
+server:
+  port: 6060
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

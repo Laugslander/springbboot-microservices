@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+  dossier-services:
+    image: wageurts/dossier-services:0.0.2-SNAPSHOT
+    ports:
+      - "9001"
+    environment:
+      - REGISTRY_HOST=service-discovery
+    tty:
+      true
+    restart:
+      unless-stopped
+
+networks:
+  default:
+    external:
+      name: eureka-network

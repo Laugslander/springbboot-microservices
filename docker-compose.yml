@@ -1,0 +1,55 @@
+version: '3.3'
+
+services:
+  service-discovery:
+    image: wageurts/service-discovery:0.0.1-SNAPSHOT
+    ports:
+      - "8761:8761"
+    tty:
+      true
+    restart:
+      unless-stopped
+
+  api-gateway:
+    image: wageurts/api-gateway:0.0.1-SNAPSHOT
+    ports:
+      - "6060:6060"
+    environment:
+      - REGISTRY_HOST=service-discovery
+    tty:
+      true
+    restart:
+      unless-stopped
+    depends_on:
+      - service-discovery
+
+  document-services:
+    image: wageurts/document-services:0.0.1-SNAPSHOT
+    ports:
+      - "9002"
+    environment:
+      - REGISTRY_HOST=service-discovery
+    tty:
+      true
+    restart:
+      unless-stopped
+    depends_on:
+      - service-discovery
+
+  dossier-services:
+    image: wageurts/dossier-services:0.0.1-SNAPSHOT
+    ports:
+      - "9001"
+    environment:
+      - REGISTRY_HOST=service-discovery
+    tty:
+      true
+    restart:
+      unless-stopped
+    depends_on:
+      - service-discovery
+
+networks:
+  default:
+    external:
+      name: eureka-network
