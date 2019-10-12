@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.svb.generiek</groupId>
-    <artifactId>dms-parent</artifactId>
+    <groupId>com.jbag</groupId>
+    <artifactId>springboot-microservices-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <description>Demo project for Spring Boot</description>
     <packaging>pom</packaging>
@@ -14,5 +14,6 @@
         <module>dossier-services</module>
         <module>document-services</module>
         <module>util-services</module>
+        <module>config-server</module>
     </modules>
 </project>
