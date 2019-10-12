@@ -8,7 +8,7 @@
         <version>2.1.8.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>org.svb.generiek</groupId>
+    <groupId>com.jbag</groupId>
     <artifactId>util-services</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>util-services</name>
