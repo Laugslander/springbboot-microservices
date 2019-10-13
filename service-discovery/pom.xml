@@ -11,8 +11,8 @@
 	<groupId>com.jbag</groupId>
 	<artifactId>service-discovery</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>service-discovery</name>
-	<description>Demo project for Spring Boot</description>
+	<name>Demo JBAG application :: Service discovery</name>
+	<description>Demo JBAG application :: Service discovery</description>
 
 	<properties>
 		<java.version>1.8</java.version>

@@ -27,18 +27,21 @@ public class DocumentRestController {
     @GetMapping("/uglyResponse")
     public ResponseEntity<?> getHello() throws UnknownHostException {
         Properties prop = System.getProperties();
+        System.out.println("Het werkt: " + " " + InetAddress.getLocalHost().getCanonicalHostName() + " -> " + prop.get("server.port") + " or " + serverPort);
         return new ResponseEntity<>("Het werkt: " + " " + InetAddress.getLocalHost().getCanonicalHostName() + " -> " + prop.get("server.port") + " or " + serverPort, HttpStatus.OK);
     }
 
-    @GetMapping("/useOtherService")
-    public ResponseEntity<String> storeDocument() {
-        ResponseEntity<Dossier> forEntity = restTemplate.getForEntity("http://DOSSIER-SERVICES/id", Dossier.class);
-
-        return new ResponseEntity<>(forEntity.toString(), HttpStatus.CREATED);
-    }
+//    @GetMapping("/useOtherService")
+//    public ResponseEntity<String> storeDocument() {
+//        ResponseEntity<Dossier> forEntity = restTemplate.getForEntity("http://DOSSIER-SERVICES/id", Dossier.class);
+//
+//        return new ResponseEntity<>(forEntity.toString(), HttpStatus.CREATED);
+//    }
 
     @GetMapping("/demo")
     public ResponseEntity<String> getDemoHtml(@RequestParam(defaultValue = "orange") String color) throws UnknownHostException {
+        System.out.println("Het werkt: " + " " + InetAddress.getLocalHost().getCanonicalHostName() + " -> " + serverPort);
+
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("<htmll>\n" +
                 "<body style=\"background-color:");

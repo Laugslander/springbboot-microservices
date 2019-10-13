@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: document-services-service
+  labels:
+    app: document-services
+spec:
+  type: LoadBalancer
+  selector:
+    app: document-services
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9002
+      name: http

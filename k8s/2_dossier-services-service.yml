@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dossier-services-service
+  labels:
+    app: dossier-services
+spec:
+  type: LoadBalancer
+  selector:
+    app: dossier-services
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9001
+      name: http

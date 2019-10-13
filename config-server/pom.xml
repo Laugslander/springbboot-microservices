@@ -11,8 +11,8 @@
 	<groupId>com.jbag</groupId>
 	<artifactId>config-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>config-server</name>
-	<description>Demo project for Spring Boot</description>
+	<name>Demo JBAG application :: Config server</name>
+	<description>Demo JBAG application :: Config server</description>
 
 	<properties>
 		<java.version>1.8</java.version>
